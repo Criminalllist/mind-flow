@@ -1,20 +1,6 @@
 <script setup lang="ts">
-// import { onMounted } from 'vue';
-// import { useMeditationStore } from '@/stores/meditations.store';
 import BaseButton from '@/common/components/BaseButton.vue';
 import PlayIcon from '@/common/icons/PlayIcon.vue';
-
-// const store = useMeditationStore()
-// 
-// 
-// onMounted(() => {
-//   store.getMeditations()
-// 
-//   console.log(typeof store.meditations)
-// 
-// 
-// })
-
 </script>
 
 <template>
