@@ -1,11 +1,22 @@
-<script setup lang="ts"></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <main class="page-main">
+    <div class="container">
+      <aside class="user-interface">
+        <user-profile :name />
+      </aside>
+      <section class="meditations">
+        <meditation-list />
+      </section>
+    </div>
+  </main>
 </template>
 
-<style scoped></style>
+<script setup lang="ts">
+import { ref } from 'vue';
+import UserProfile from './components/UserProfile/UserProfile.vue';
+import MeditationList from './components/MeditationList/MeditationList.vue';
+
+const name = ref('Will')
+</script>
+
+<style scoped lang="scss"></style>

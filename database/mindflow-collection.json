@@ -1,0 +1,339 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2023-11-29T12:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_root",
+      "parentId": "wrk_meditation_api",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}",
+      "name": "Root",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1701266400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_meditation_api",
+      "parentId": null,
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "name": "Meditation API",
+      "description": "API для приложения медитации",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_register",
+      "parentId": "fld_auth",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}/api/auth/register",
+      "name": "Регистрация",
+      "description": "Регистрация нового пользователя",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"username\": \"user1\",\n\t\"email\": \"user1@example.com\",\n\t\"password\": \"password123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1701266400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_auth",
+      "parentId": "wrk_meditation_api",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "name": "Аутентификация",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1701266400000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_login",
+      "parentId": "fld_auth",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}/api/auth/login",
+      "name": "Вход",
+      "description": "Вход пользователя",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"username\": \"user1\",\n\t\"password\": \"password123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1701266300000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_profile",
+      "parentId": "fld_user",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}/api/profile",
+      "name": "Профиль",
+      "description": "Получение профиля пользователя",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1701266400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_user",
+      "parentId": "wrk_meditation_api",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "name": "Пользователь",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1701266300000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_meditations",
+      "parentId": "fld_meditations",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}/api/meditations",
+      "name": "Список медитаций",
+      "description": "Получение списка всех медитаций",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1701266400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_meditations",
+      "parentId": "wrk_meditation_api",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "name": "Медитации",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1701266200000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_save_stat",
+      "parentId": "fld_stats",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}/api/stats",
+      "name": "Сохранить длительность",
+      "description": "Сохранение длительности медитации",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"type\": \"duration_min\",\n\t\"value\": 5\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1701266400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_stats",
+      "parentId": "wrk_meditation_api",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "name": "Статистика",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1701266100000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_save_stat_feeling",
+      "parentId": "fld_stats",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}/api/stats",
+      "name": "Сохранить ощущение",
+      "description": "Сохранение ощущения после медитации",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"type\": \"feeling_calm\",\n\t\"value\": 1\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1701266350000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_get_stats",
+      "parentId": "fld_stats",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "url": "{{ _.baseUrl }}/api/stats",
+      "name": "Получить статистику",
+      "description": "Получение статистики медитаций пользователя",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      },
+      "metaSortKey": -1701266300000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_default",
+      "parentId": "wrk_meditation_api",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "name": "Базовое окружение",
+      "data": {
+        "baseUrl": "http://localhost:3000",
+        "token": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl",
+          "token"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1701266400000,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_development",
+      "parentId": "env_default",
+      "modified": 1701266400000,
+      "created": 1701266400000,
+      "name": "Разработка",
+      "data": {
+        "baseUrl": "http://localhost:3000",
+        "token": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl",
+          "token"
+        ]
+      },
+      "color": "#00ff00",
+      "isPrivate": false,
+      "metaSortKey": 1701266400000,
+      "_type": "environment"
+    }
+  ]
+} 
