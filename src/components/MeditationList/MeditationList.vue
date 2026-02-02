@@ -1,13 +1,26 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+import { useMeditationStore } from '@/stores/meditations.store';
 import BaseButton from '@/common/components/BaseButton.vue';
 import PlayIcon from '@/common/icons/PlayIcon.vue';
+
+const store = useMeditationStore()
+
+
+onMounted(() => {
+  store.getMeditations()
+
+  console.log(typeof store.meditations)
+
+
+})
 </script>
 
 <template>
   <ul class="meditation-list">
-    <li class="medidation-list__item meditation-card">
-      <h2 class="meditation-card__title">title</h2>
-      <p class="meditation-card__description">description</p>
+    <li class="medidation-list__item meditation-card" v-for="item in store.meditations" :key="item.id">
+      <h2 class="meditation-card__title">{{ item.title }}</h2>
+      <p class="meditation-card__description">{{ item.description }}</p>
       <div class="meditation-card__footer">
         <base-button>
           Начать
@@ -15,7 +28,7 @@ import PlayIcon from '@/common/icons/PlayIcon.vue';
             <PlayIcon />
           </template>
         </base-button>
-        <span class="meditation-card__duration">duration</span>
+        <span class="meditation-card__duration">{{ item.duration_min }}</span>
       </div>
     </li>
   </ul>
