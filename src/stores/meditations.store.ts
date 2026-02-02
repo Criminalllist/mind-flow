@@ -25,5 +25,5 @@ export const useMeditationStore = defineStore('meditations', () => {
     }
   }
 
-  return { meditations, getMeditations}
+  return { meditations, getMeditations, loading, error }
 })

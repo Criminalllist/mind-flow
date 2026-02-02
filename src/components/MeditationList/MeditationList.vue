@@ -1,36 +1,20 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useMeditationStore } from '@/stores/meditations.store';
-import BaseButton from '@/common/components/BaseButton.vue';
-import PlayIcon from '@/common/icons/PlayIcon.vue';
+import MeditationCard from './MeditationCard/MeditationCard.vue';
 
 const store = useMeditationStore()
-
 
 onMounted(() => {
   store.getMeditations()
 
-  console.log(typeof store.meditations)
-
-
+  console.log(store.meditations)
 })
 </script>
 
 <template>
   <ul class="meditation-list">
-    <li class="medidation-list__item meditation-card" v-for="item in store.meditations" :key="item.id">
-      <h2 class="meditation-card__title">{{ item.title }}</h2>
-      <p class="meditation-card__description">{{ item.description }}</p>
-      <div class="meditation-card__footer">
-        <base-button>
-          Начать
-          <template #icon>
-            <PlayIcon />
-          </template>
-        </base-button>
-        <span class="meditation-card__duration">{{ item.duration_min }}</span>
-      </div>
-    </li>
+    <meditation-card v-for="meditation in store.meditations" :key="meditation.id" :meditation="meditation" />
   </ul>
 </template>
 
@@ -39,7 +23,8 @@ onMounted(() => {
 .meditation-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(350px, 1fr));
-  gap: 22px 24px
+  gap: 22px 24px;
+  margin-top: 40px;
 }
 
 .meditation-card {
