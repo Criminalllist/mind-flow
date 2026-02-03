@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useMeditationStore } from '@/stores/meditations.store';
-import MeditationCard from './MeditationCard/MeditationCard.vue';
+import MeditationCard from '@/components/MeditationCard/MeditationCard.vue';
 
 const store = useMeditationStore()
 
 onMounted(() => {
   store.getMeditations()
-
-  console.log(store.meditations)
 })
 </script>
 

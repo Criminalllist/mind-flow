@@ -13,9 +13,10 @@
 .button {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  width: 110px;
   height: 40px;
-  padding: 10px;
+  padding: 10px 15px 10px 25px;
   background-color: var(--background-button);
   border: none;
   border-radius: var(--border-radius-m);
